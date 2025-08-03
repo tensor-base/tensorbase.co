@@ -40,7 +40,7 @@
 // }
 
 import React from "react";
-import { Github, Mail, Bell, Sparkles } from "lucide-react";
+import { Mail, Bell } from "lucide-react";
 
 const ComingSoonPage = () => {
   // const [email, setEmail] = useState("");

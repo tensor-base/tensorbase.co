@@ -13,14 +13,13 @@ export default function Home() {
         </div> */}
           <div className="inline-block px-4 py-2 rounded-full text-gray-300 mb-4 text-sm font-medium">
           ⚡ Coming Soon
-        </div>
+        </div>hh
         <h1 className="text-4xl md:text-6xl font-bold mb-2 leading-tight">
           Unobtrusive AI/ML development 
         </h1>
         
         <p className="text-gray-400 mb-8 text-base md:text-lg">
-          We&apos;re building the easiest, most reliable platform for deploying your AI/ML applications. Get ready to ship at the speed of thought.
-        </p>
+          Unobtrusive platform for deploying your AI/ML applications. Ship at the speed of thought.        </p>
 
         <div className="flex flex-col sm:flex-row items-center justify-center gap-2">
           <input

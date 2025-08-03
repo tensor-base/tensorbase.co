@@ -13,11 +13,11 @@ export default function Home() {
         </div>
 
         <h1 className="text-4xl md:text-6xl font-bold mb-2 leading-tight">
-          The future of 
+          Unobtrusive AI/ML development 
         </h1>
-        <h1 className="text-2xl md:text-6xl font-semibold mb-4">
+        {/* <h1 className="text-2xl md:text-6xl font-semibold mb-4">
           <span className="text-gray-400">Unobtrusive AI/ML development</span>
-        </h1>
+        </h1> */}
         <p className="text-gray-400 mb-8 text-base md:text-lg">
           We&apos;re building the easiest, most reliable platform for deploying your AI/ML applications. Get ready to ship at the speed of thought.
         </p>

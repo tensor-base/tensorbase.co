@@ -15,26 +15,25 @@ import {
   ShieldCheck,
 } from "lucide-react";
 
-// --- Data for the dropdown menu ---
-// You can easily customize this content
-const productMenuItems = [
+
+const productsMenuItems = [
   {
     category: "Build your app",
     items: [
       {
-        title: "Expo SDK",
+        title: "TB SDK",
         description: "The best tools to build your app",
         href: "#",
         icon: <Code size={20} />,
       },
       {
-        title: "Expo CLI",
+        title: "TB CLI",
         description: "Build and run your app locally",
         href: "#",
         icon: <TerminalSquare size={20} />,
       },
       {
-        title: "Expo Go",
+        title: "TB Go",
         description: "Preview your app on device",
         href: "#",
         icon: <Rocket size={20} />,
@@ -80,7 +79,7 @@ const productMenuItems = [
 
 const Navbar = () => {
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [isProductMenuOpen, setProductMenuOpen] = useState(false);
+  const [isProductsMenuOpen, setProductsMenuOpen] = useState(false);
 
   const toggleMobileMenu = () => {
     setMobileMenuOpen(!isMobileMenuOpen);
@@ -89,7 +88,7 @@ const Navbar = () => {
   return (
     <nav className="bg-black/30 backdrop-blur-lg sticky top-0 z-50 border-b border-white/10">
       <div className="px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-20">
+        <div className="flex items-center justify-between h-15">
           {/* Logo and primary nav */}
           <div className="flex items-center space-x-8">
             <a href="#" className="flex-shrink-0">
@@ -98,27 +97,27 @@ const Navbar = () => {
             <div className="hidden md:flex items-center space-x-6">
               {/* Product Dropdown Link */}
               <div
-                className="relative"
-                onMouseEnter={() => setProductMenuOpen(true)}
-                onMouseLeave={() => setProductMenuOpen(false)}
+                className="relative group"
+                onMouseEnter={() => setProductsMenuOpen(true)}
+                onMouseLeave={() => setProductsMenuOpen(false)}
               >
                 <button
                   className="flex items-center space-x-1 text-gray-300 hover:text-white transition-colors duration-300 py-2"
                 >
-                  <span>Product</span>
+                  <span>Products</span>
                   <ChevronDown
                     size={16}
-                    className={`transition-transform duration-300 ${
-                      isProductMenuOpen ? "rotate-180" : ""
+                    className={`transition-transform duration-300 group-hover:rotate-180" ${
+                      isProductsMenuOpen ? "rotate-180" : ""
                     }`}
                   />
                 </button>
                 {/* Mega Menu Dropdown Panel */}
-                {isProductMenuOpen && (
-                  <div className="absolute -left-8 top-full w-screen max-w-md mt-2">
-                    <div className="bg-gray-900/80 backdrop-blur-lg rounded-xl shadow-lg ring-1 ring-white/10 overflow-hidden p-4">
+                {isProductsMenuOpen && (
+                  <div className="absolute -left-8 top-full w-screen max-w-md pt-2 opacity-0 group-hover:opacity-100 invisible group-hover:visible transition-all duration-300">
+                    <div className="bg-black backdrop-blur-lg rounded-xl shadow-lg ring-1 ring-white/10 overflow-hidden p-4">
                       <div className="grid grid-cols-2 gap-x-6 gap-y-4">
-                        {productMenuItems.map((section) => (
+                        {productsMenuItems.map((section) => (
                           <div key={section.category} className="space-y-2">
                             <h3 className="font-semibold text-white text-sm px-3">
                               {section.category}
@@ -130,7 +129,7 @@ const Navbar = () => {
                                   href={item.href}
                                   className="flex items-start space-x-3 p-3 rounded-lg hover:bg-white/5 transition-colors duration-200"
                                 >
-                                  <div className="text-blue-400 mt-0.5">{item.icon}</div>
+                                  <div className="text-white-400 mt-0.5">{item.icon}</div>
                                   <div>
                                     <p className="font-semibold text-white text-sm">
                                       {item.title}

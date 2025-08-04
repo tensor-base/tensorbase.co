@@ -25,7 +25,7 @@ const ComingSoonPage = () => {
             {/* <div className="w-8 h-8 bg-white rounded-sm flex items-center justify-center">
               <span className="text-black font-bold text-lg">▲</span>
             </div> */}
-            <span className="text-xl font-bold">Tensor Base</span>
+            {/* <span className="text-xl font-bold">Tensor Base</span> */}
           </div>
         </div>
         {/* <div className="flex items-center space-x-4">

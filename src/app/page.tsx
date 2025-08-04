@@ -42,15 +42,15 @@ const ComingSoonPage = () => {
 
         {/* Main Heading */}
         <h1 className="text-5xl md:text-6xl font-bold leading-tight mb-6 bg-gradient-to-r from-white via-gray-200 to-gray-400 bg-clip-text text-transparent">
-          Unobtrusive AI/ML development
+          Unobtrusive AI/ML development and deployment
         </h1>
 
         {/* Action Words */}
 
         {/* Description */}
         <p className="text-xl md:text-2xl text-gray-300 mb-12 leading-relaxed max-w-3xl">
-          A next-gen platform for deploying your AI/ML applications. Ship at the
-          speed of thought.
+          A next-gen platform for deploying your AI/ML applications. Develop and
+          ship at the speed of thought.
         </p>
 
         <div className="w-full max-w-md relative group mb-8">

@@ -73,7 +73,7 @@ const testimonials = [
     tweetUrl: "https://x.com/mattpocockuk/status/1874822204824731717",
     content: (
       <div className="mt-4">
-        Vercel's AI SDK is one of the first tools I reach for when I'm building
+        Vercel&apos;s AI SDK is one of the first tools I reach for when I&apos;m building
         an AI-powered feature in TypeScript.
       </div>
     ),
@@ -86,15 +86,15 @@ const testimonials = [
     content: (
       <>
         <div className="mt-4">
-          Vercel's @aisdk is insanely good. Docs are fantastic. Great
-          abstractions where you want them, doesn't force unnecessary ones, and
+          Vercel&apos;s @aisdk is insanely good. Docs are fantastic. Great
+          abstractions where you want them, doesn&apos;t force unnecessary ones, and
           lets you get under the hood where appropriate. Solves the hard stuff
           (stream parsing, tool streaming, multi-turn tool execution, error
           handling and healing/recovery) without forcing you into dumb patterns
         </div>
         <div className="mt-4"></div>
         <div className="mt-4">
-          It just works, it's fantastic software and delightful to use. The team
+          It just works, it&apos;s fantastic software and delightful to use. The team
           ships insanely fast, and has turned PRs from me around in like 2 days,
           and frequently ships requested features in &lt; 1w
         </div>
@@ -135,7 +135,7 @@ const testimonials = [
     tweetUrl: "https://x.com/localhost_5173/status/1794004340375802108",
     content: (
       <div className="mt-4">
-        Vercel AI SDK is so good, there's no reason to directly use npm/openai
+        Vercel AI SDK is so good, there&apos;s no reason to directly use npm/openai
         or npm/claude anymore
       </div>
     ),
@@ -154,8 +154,8 @@ const testimonials = [
     tweetUrl: "https://x.com/pontusab/status/1824398511099510791",
     content: (
       <div className="mt-4">
-        With the ai sdk available i'm always thinking: "How can I make this
-        process as automatic as possible for the user?" because the barrier to
+        With the ai sdk available i&apos;m always thinking: &quot;How can I make this
+        process as automatic as possible for the user?&quot; because the barrier to
         implementing it is just a matter of minutes.
       </div>
     ),
@@ -173,7 +173,7 @@ const testimonials = [
           object.
         </div>
         <div className="mt-4"></div>
-        <div className="mt-4">it's pure magic.</div>
+        <div className="mt-4">it&apos;s pure magic.</div>
       </>
     ),
   },

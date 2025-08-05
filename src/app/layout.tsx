@@ -31,7 +31,7 @@ export default function RootLayout({
       >
         <Navbar /> {/* 2. ADD THE NAVBAR COMPONENT HERE */}
         <main>{children}</main> {/* 3. WRAP THE PAGE CONTENT */}
-        {/* <Footer /> */}
+        <Footer />
       </body>
     </html>
   );

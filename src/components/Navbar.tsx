@@ -26,19 +26,19 @@ const productMenuItems = [
     category: "Build your app",
     items: [
       {
-        title: "Expo SDK",
+        title: "TB SDK",
         description: "The best tools to build your app",
         href: "#",
         icon: <Code size={20} />,
       },
       {
-        title: "Expo CLI",
+        title: "TB CLI",
         description: "Build and run your app locally",
         href: "#",
         icon: <TerminalSquare size={20} />,
       },
       {
-        title: "Expo Go",
+        title: "TB Go",
         description: "Preview your app on device",
         href: "#",
         icon: <Rocket size={20} />,

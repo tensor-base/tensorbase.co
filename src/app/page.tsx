@@ -41,7 +41,7 @@ const ComingSoonPage = () => {
         {/* Coming Soon Badge */}
 
         {/* Main Heading */}
-        <h1 className="text-5xl md:text-6xl font-bold leading-tight mb-6 bg-gradient-to-r from-white via-gray-200 to-gray-400 bg-clip-text text-transparent">
+        <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6 bg-gradient-to-r from-white via-gray-200 to-gray-400 bg-clip-text text-transparent">
           Unobtrusive AI/ML development and deployment
         </h1>
 

@@ -72,7 +72,7 @@ const FaqSection = () => {
   };
 
   return (
-    <section className="bg-white dark:bg-black">
+    <section className="bg-white dark:bg-[#111111]">
       <div className="max-w-screen-lg mx-auto">
         <div className="p-2 py-6 text-2xl font-bold tracking-tight text-center sm:text-3xl md:p-8">
           FAQs

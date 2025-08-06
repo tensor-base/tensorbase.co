@@ -6,6 +6,7 @@ import Users from "@/components/home/Users";
 import WhatsNew from "@/components/home/WhatsNew";
 import Features from "@/components/home/Features";
 import BackgroundEffects from "@/components/home/BackgroundEffects";
+import Footer from "@/components/home/Footer";
 
 import FaqSection from "@/components/home/FaqSection";
 
@@ -41,7 +42,9 @@ const HomePage = () => {
         <FaqSection />
       </div>
       <BackgroundEffects />
+      <Footer />
     </div>
+    
   );
 };
 

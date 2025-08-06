@@ -1,145 +1,87 @@
-// components/FaqSection.tsx
-"use client"; // Required for client-side interactivity (useState, onClick)
+"use client";
 
-import { useState, useRef } from "react";
-import Link from "next/link";
+import React, { useState } from "react";
+import { ChevronDown } from "lucide-react";
 
-// We can define the FAQ data in an array to easily manage it.
 const faqData = [
-  {
-    question: "Is the AI SDK free to use?",
-    answer: (
-      <div className="pb-4">Yes, the AI SDK is free and open source.</div>
-    ),
-  },
-  {
-    question: "How do I get started?",
-    answer: (
-      <div className="pb-4">
-        Visit our{" "}
-        <Link
-          href="/getting-started"
-          className="dark:text-blue-800 text-blue-700"
-        >
-          getting started page
-        </Link>{" "}
-        to learn how to install the AI SDK with your preferred framework.
-      </div>
-    ),
-  },
-  {
-    question: "How can I contribute to the project?",
-    answer: (
-      <div className="pb-4">
-        We welcome contributions from the community! You can contribute by
-        submitting bug reports, feature requests, or pull requests on our{" "}
-        <a
-          className="dark:text-blue-800 text-blue-700 inline-flex items-center"
-          target="_blank"
-          rel="noopener noreferrer"
-          href="https://github.com/vercel/ai"
-        >
-          GitHub repository
-          <svg
-            className="ml-1"
-            data-testid="geist-icon"
-            fill="none"
-            height="14"
-            shapeRendering="geometricPrecision"
-            stroke="currentColor"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth="1.5"
-            viewBox="0 0 24 24"
-            width="14"
-          >
-            <path d="M7 17L17 7"></path>
-            <path d="M7 7h10v10"></path>
-          </svg>
-        </a>
-        .
-      </div>
-    ),
-  },
+    {
+        question: "How do I update my billing information?",
+        answer: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin nec ante vitae purus tempus egestas. Curabitur euismod purus sed elit faucibus. Vivamus in ante sed libero feugiat fermentum."
+    },
+    {
+        question: "Can I change my plan at any time?",
+        answer: "Yes, you can upgrade, downgrade, or cancel your plan at any time from your account settings. Changes will be prorated and applied to your next billing cycle."
+    },
+    {
+        question: "What payment methods do you accept?",
+        answer: "We accept all major credit cards, including Visa, Mastercard, and American Express. We also support payments through PayPal for your convenience."
+    },
+    {
+        question: "Is there a free trial available?",
+        answer: "Absolutely! We offer a 14-day free trial with full access to all features. No credit card is required to get started."
+    },
+    {
+        question: "How does your platform ensure data security?",
+        answer: "We take data security very seriously. All data is encrypted in transit and at rest, and we adhere to industry-best security practices and compliance standards."
+    }
 ];
 
 const FaqSection = () => {
-  const [openIndex, setOpenIndex] = useState<number | null>(null);
-  const contentRefs = useRef<(HTMLDivElement | null)[]>([]);
+    const [activeIndex, setActiveIndex] = useState<number | null>(0);
 
-  const handleToggle = (index: number) => {
-    setOpenIndex(openIndex === index ? null : index);
-  };
+    const toggleFaq = (index: number) => {
+        setActiveIndex(activeIndex === index ? null : index);
+    };
 
-  return (
-    <section className="bg-white dark:bg-[#111111]">
-      <div className="max-w-screen-lg mx-auto">
-        <div className="p-2 py-6 text-2xl font-bold tracking-tight text-center sm:text-3xl md:p-8">
-          FAQs
-        </div>
-
-        <div className="p-0">
-          <div className="space-y-4">
-            {faqData.map((faq, index) => (
-              <div key={index} className="border-b dark:border-gray-800">
-                <h3>
-                  <button
-                    onClick={() => handleToggle(index)}
-                    className="geist-reset flex justify-between items-center w-full py-4 text-left"
-                    aria-expanded={openIndex === index}
-                    aria-controls={`faq-content-${index}`}
-                  >
-                    <span className="text-lg font-semibold">
-                      {faq.question}
-                    </span>
-                    <span
-                      className={`transition-transform duration-300 ${
-                        openIndex === index ? "rotate-180" : ""
-                      }`}
-                    >
-                      <svg
-                        data-testid="geist-icon"
-                        height="16"
-                        strokeLinejoin="round"
-                        viewBox="0 0 16 16"
-                        width="16"
-                        style={{ color: "currentColor" }}
-                      >
-                        <path
-                          fillRule="evenodd"
-                          clipRule="evenodd"
-                          d="M12.0607 6.74999L11.5303 7.28032L8.7071 10.1035C8.31657 10.4941 7.68341 10.4941 7.29288 10.1035L4.46966 7.28032L3.93933 6.74999L4.99999 5.68933L5.53032 6.21966L7.99999 8.68933L10.4697 6.21966L11 5.68933L12.0607 6.74999Z"
-                          fill="currentColor"
-                        ></path>
-                      </svg>
-                    </span>
-                  </button>
-                </h3>
-                <div
-                  id={`faq-content-${index}`}
-                  role="region"
-                  aria-labelledby={`faq-button-${index}`}
-                  ref={(el) => {
-                    contentRefs.current[index] = el;
-                  }}
-                  className="overflow-hidden transition-all duration-500 ease-in-out"
-                  style={{
-                    maxHeight:
-                      openIndex === index
-                        ? `${contentRefs.current[index]?.scrollHeight}px`
-                        : "0px",
-                  }}
-                >
-                  {/* The content is rendered here */}
-                  {faq.answer}
+    return (
+        <section className="w-full max-w-6xl mx-auto py-16 px-4">
+            <div className="grid md:grid-cols-2 gap-16 items-centre">
+                {/* Left Column: Title and Description */}
+                <div className="text-center md:text-left flex flex-col justify-center ">
+                    <h2 className="text-4xl  font-bold text-white mb-4">
+                        Frequently Asked Questions
+                    </h2>
+                    <p className="text-lg text-gray-400">
+                        Trusted in more than 100 countries and 4 million customers.
+                    </p>
                 </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
-    </section>
-  );
+
+                {/* Right Column: Accordion */}
+                <div className="w-full bg-gray border border-gray-700 rounded-xl p-4 backdrop-blur-sm">
+                    {faqData.map((faq, index) => (
+                        <div key={index} className="border-b border-gray-700 last:border-b-0">
+                            <button
+                                onClick={() => toggleFaq(index)}
+                                className="w-full flex justify-between items-center text-left py-5 px-4"
+                            >
+                                <span className="font-semibold text-white">
+                                    {faq.question}
+                                </span>
+                                <ChevronDown
+                                    className={`w-5 h-5 text-blue-400 transition-transform duration-300 ${
+                                        activeIndex === index ? "rotate-180" : ""
+                                    }`}
+                                />
+                            </button>
+                            <div
+                                className={`grid transition-all duration-300 ease-in-out ${
+                                    activeIndex === index
+                                        ? "grid-rows-[1fr] opacity-100"
+                                        : "grid-rows-[0fr] opacity-0"
+                                }`}
+                            >
+                                <div className="overflow-hidden">
+                                    <p className="text-gray-400 pb-5 px-4">
+                                        {faq.answer}
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    ))}
+                </div>
+            </div>
+        </section>
+    );
 };
 
 export default FaqSection;

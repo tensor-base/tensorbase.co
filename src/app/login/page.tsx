@@ -5,7 +5,7 @@ import { Metadata } from "next";
 
 // Best practice: Add metadata for the page (e.g., title)
 export const metadata: Metadata = {
-  title: "Login",
+  title: "Tensor Base-Login",
   description: "Log in to access your account.",
 };
 

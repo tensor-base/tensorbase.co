@@ -3,14 +3,11 @@
 import React from "react";
 import { ArrowRight } from "lucide-react";
 import Users from "@/components/home/Users";
-import { TestimonialsGrid } from "@/components/home/TestimonialsGrid";
-import FaqSection from "@/components/home/FaqSection";
-import Actions from "@/components/home/Actions";
 import WhatsNew from "@/components/home/WhatsNew";
 import Features from "@/components/home/Features";
 import BackgroundEffects from "@/components/home/BackgroundEffects";
-import LoginPage from "@/components/auth/login";
-import WorkflowPills from "@/components/WorkflowPills";
+
+import FaqSection from "@/components/home/FaqSection";
 
 const HomePage = () => {
   return (
@@ -21,8 +18,8 @@ const HomePage = () => {
         <h1 className="text-4xl md:text-5xl font-bold leading-tight mb-6 bg-gradient-to-r from-white via-gray-200 to-gray-400 bg-clip-text text-transparent">
           Unobtrusive AI/ML development and deployment
         </h1>
-        <WorkflowPills />
-        <p className="text-xl md:text-1xl text-gray-400 mb-12 leading-relaxed max-w-3xl">
+        
+        <p className="mt-7 text-xl md:text-1xl text-gray-400 mb-12 leading-relaxed max-w-3xl">
           A next-gen platform for deploying your AI/ML applications. Develop and
           ship at the speed of thought.
         </p>
@@ -41,7 +38,7 @@ const HomePage = () => {
         <Users />
         <Features />
         {/* <TestimonialsGrid /> */}
-        {/* <FaqSection /> */}
+        <FaqSection />
       </div>
       <BackgroundEffects />
     </div>

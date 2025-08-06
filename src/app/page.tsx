@@ -6,6 +6,7 @@ import Link from "next/link";
 import Users from "@/components/Users";
 import { TestimonialsGrid } from "@/components/TestimonialsGrid";
 import FaqSection from "@/components/FaqSection";
+import WorkflowPills from "@/components/WorkflowPills";
 
 const ComingSoonPage = () => {
   return (
@@ -28,9 +29,10 @@ const ComingSoonPage = () => {
         <h1 className="text-4xl md:text-5xl font-bold leading-tight mb-6 bg-gradient-to-r from-white via-gray-200 to-gray-400 bg-clip-text text-transparent">
           Unobtrusive AI/ML development and deployment
         </h1>
+        <WorkflowPills/>
         {/* Action Words */}
         {/* Description */}
-        <p className="text-xl md:text-1xl text-gray-400 mb-12 leading-relaxed max-w-3xl">
+        <p className="mt-8 text-xl md:text-1xl text-gray-400 mb-12 leading-relaxed max-w-3xl">
           A next-gen platform for deploying your AI/ML applications. Develop and
           ship at the speed of thought.
         </p>

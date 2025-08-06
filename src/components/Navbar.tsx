@@ -17,6 +17,7 @@ import {
   Frown,
   Meh,
 } from "lucide-react";
+import Link from "next/link";
 
 // --- Data for the dropdown menu ---
 const productMenuItems = [
@@ -86,54 +87,57 @@ const Navbar = () => {
   const [isFeedbackModalOpen, setFeedbackModalOpen] = useState(false);
   const [selectedReaction, setSelectedReaction] = useState<string | null>(null);
 
-  // --- Functions for Feedback Modal ---
   const openFeedbackModal = () => {
-    setMobileMenuOpen(false); // Close mobile menu if open
+    setMobileMenuOpen(false);
     setFeedbackModalOpen(true);
-  }
+  };
   const closeFeedbackModal = () => setFeedbackModalOpen(false);
-  const handleReactionClick = (reaction: string) => setSelectedReaction(reaction);
+  const handleReactionClick = (reaction: string) =>
+    setSelectedReaction(reaction);
   const handleFeedbackSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     console.log("Feedback submitted!");
     closeFeedbackModal();
   };
 
-  // --- Effect for Keyboard Shortcuts (Only for Feedback Modal) ---
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
-      if (event.key === 'Escape') {
+      if (event.key === "Escape") {
         closeFeedbackModal();
       }
     };
     if (isFeedbackModalOpen) {
-        window.addEventListener('keydown', handleKeyDown);
+      window.addEventListener("keydown", handleKeyDown);
     }
     return () => {
-      window.removeEventListener('keydown', handleKeyDown);
+      window.removeEventListener("keydown", handleKeyDown);
     };
   }, [isFeedbackModalOpen]);
 
-
   return (
     <>
-      <nav className="bg-black/30 backdrop-blur-lg sticky top-0 z-40 border-b border-white/10">
+      <nav className="sticky top-0 z-40 border-b border-white/10 bg-[#111111]">
         <div className="px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-15">
             {/* Logo and primary nav */}
             <div className="flex items-center space-x-8">
-              <a href="#" className="flex-shrink-0">
-                <span className="text-xl font-bold text-white">Tensor Base</span>
-              </a>
+              <Link href="/" className="flex-shrink-0">
+                <span className="text-xl font-bold text-white">
+                  Tensor Base
+                </span>
+              </Link>
               <div className="hidden md:flex items-center space-x-6">
                 {/* Product Dropdown */}
                 <div className="relative group">
                   <button className="flex items-center space-x-1 text-gray-300 hover:text-white transition-colors duration-300">
                     <span>Product</span>
-                    <ChevronDown size={16} className="transition-transform duration-300 group-hover:rotate-180 opacity-60"/>
+                    <ChevronDown
+                      size={16}
+                      className="transition-transform duration-300 group-hover:rotate-180 opacity-60"
+                    />
                   </button>
                   <div className="absolute -left-8 top-full w-screen max-w-lg pt-4 opacity-0 group-hover:opacity-100 invisible group-hover:visible transition-all duration-300">
-                    <div className="bg-black backdrop-blur-xl rounded-xl shadow-2xl ring-1 ring-gray-800 overflow-hidden p-6">
+                    <div className="bg-[#111111] backdrop-blur-xl rounded-xl shadow-2xl ring-1 ring-gray-800 overflow-hidden p-6">
                       <div className="grid grid-cols-2 gap-x-8 gap-y-4">
                         {productMenuItems.map((section) => (
                           <div key={section.category} className="space-y-4">
@@ -148,7 +152,9 @@ const Navbar = () => {
                                   className="flex items-center space-x-4 p-2 rounded-lg hover:bg-gray-800/50 transition-colors duration-200"
                                 >
                                   <div className="p-2 bg-gray-900 border border-gray-700 rounded-md flex items-center justify-center">
-                                      <div className="text-white flex-shrink-0">{item.icon}</div>
+                                    <div className="text-white flex-shrink-0">
+                                      {item.icon}
+                                    </div>
                                   </div>
                                   <div>
                                     <p className="font-semibold text-white text-sm">
@@ -167,32 +173,55 @@ const Navbar = () => {
                     </div>
                   </div>
                 </div>
-                <a href="#" className="text-gray-300 hover:text-white transition-colors duration-300">Pricing</a>
-                <a href="#" className="text-gray-300 hover:text-white transition-colors duration-300">Docs</a>
-                <a href="#" className="text-gray-300 hover:text-white transition-colors duration-300">Blog</a>
+                <Link
+                  href="/pricing"
+                  className="text-gray-300 hover:text-white transition-colors duration-300"
+                >
+                  Pricing
+                </Link>
+                <Link
+                  href="/docs"
+                  className="text-gray-300 hover:text-white transition-colors duration-300"
+                >
+                  Docs
+                </Link>
+                <Link
+                  href="/blog"
+                  className="text-gray-300 hover:text-white transition-colors duration-300"
+                >
+                  Blog
+                </Link>
               </div>
             </div>
 
             {/* Right side buttons (Desktop) */}
             <div className="hidden md:flex items-center space-x-4">
-              
               <button
                 onClick={openFeedbackModal}
                 className="text-sm text-gray-300 bg-gray-800/50 border border-white/10 px-3 py-2 rounded-md hover:border-white/20 transition-colors"
               >
-                Feedback
+                Share Feedback
               </button>
-              <a href="#" className="text-gray-300 hover:text-white transition-colors duration-300 text-sm">
+              <Link
+                href="/login"
+                className="text-gray-300 hover:text-white transition-colors duration-300 text-sm"
+              >
                 Log In
-              </a>
-              <a href="#" className="bg-red-600 text-white px-4 py-2 rounded-md text-sm font-semibold hover:bg-red-700 transition-colors duration-300">
+              </Link>
+              <Link
+                href="/signup"
+                className="bg-blue-600 text-white px-4 py-2 rounded-md text-sm font-semibold hover:bg-blue-500 transition-colors duration-300"
+              >
                 Sign Up
-              </a>
+              </Link>
             </div>
 
             {/* Mobile menu button */}
             <div className="md:hidden flex items-center">
-              <button onClick={() => setMobileMenuOpen(!isMobileMenuOpen)} className="text-white">
+              <button
+                onClick={() => setMobileMenuOpen(!isMobileMenuOpen)}
+                className="text-white"
+              >
                 {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
               </button>
             </div>
@@ -201,36 +230,74 @@ const Navbar = () => {
 
         {/* Mobile Menu */}
         {isMobileMenuOpen && (
-            <div className="md:hidden bg-black backdrop-blur-xl border-t border-white/10">
-                <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-                    <a href="#" className="block px-3 py-2 rounded-md text-base font-medium text-white hover:bg-gray-800">Product</a>
-                    <a href="#" className="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-gray-800">Pricing</a>
-                    <a href="#" className="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-gray-800">Docs</a>
-                    <a href="#" className="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-gray-800">Blog</a>
-                    <button onClick={openFeedbackModal} className="w-full text-left block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-gray-800">
-                      Feedback
-                    </button>
-                </div>
-                <div className="pt-4 pb-3 border-t border-gray-800">
-                    <div className="flex items-center justify-center space-x-4">
-                        <a href="#" className="text-gray-300 hover:text-white transition-colors duration-300">Log In</a>
-                        <a href="#" className="bg-red-600 text-white px-4 py-2 rounded-md text-sm font-semibold hover:bg-red-700 transition-colors duration-300">
-                            Sign Up
-                        </a>
-                    </div>
-                </div>
+          <div className="md:hidden bg-[#111111] backdrop-blur-xl border-t border-white/10">
+            <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+              <a
+                href="#"
+                className="block px-3 py-2 rounded-md text-base font-medium text-white hover:bg-gray-800"
+              >
+                Product
+              </a>
+              <a
+                href="#"
+                className="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-gray-800"
+              >
+                Pricing
+              </a>
+              <a
+                href="#"
+                className="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-gray-800"
+              >
+                Docs
+              </a>
+              <a
+                href="#"
+                className="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-gray-800"
+              >
+                Blog
+              </a>
+              <button
+                onClick={openFeedbackModal}
+                className="w-full text-left block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-gray-800"
+              >
+                Feedback
+              </button>
             </div>
+            <div className="pt-4 pb-3 border-t border-gray-800">
+              <div className="flex items-center justify-center space-x-4">
+                <a
+                  href="/login"
+                  className="text-gray-300 hover:text-white transition-colors duration-300"
+                >
+                  Log In
+                </a>
+                <a
+                  href="#"
+                  className="bg-blue-600 text-white px-4 py-2 rounded-md text-sm font-semibold hover:bg-blue-700 transition-colors duration-300"
+                >
+                  Sign Up
+                </a>
+              </div>
+            </div>
+          </div>
         )}
       </nav>
 
       {/* --- FEEDBACK MODAL --- */}
       {isFeedbackModalOpen && (
         <div className="fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center z-50 transition-opacity duration-300">
-          <div className="bg-black text-white rounded-xl shadow-2xl w-full max-w-md mx-4 border border-gray-800" onClick={(e) => e.stopPropagation()}>
+          <div
+            className="bg-black text-white rounded-xl shadow-2xl w-full max-w-md mx-4 border border-gray-800"
+            onClick={(e) => e.stopPropagation()}
+          >
             <form onSubmit={handleFeedbackSubmit}>
               <div className="flex items-center justify-between p-6">
-                <h2 className="text-xl font-bold">Leave feedback</h2>
-                <button type="button" onClick={closeFeedbackModal} className="text-gray-400 hover:text-white transition-colors">
+                <h2 className="text-xl font-bold">Share feedback</h2>
+                <button
+                  type="button"
+                  onClick={closeFeedbackModal}
+                  className="text-gray-400 hover:text-white transition-colors"
+                >
                   <X size={24} />
                 </button>
               </div>
@@ -245,11 +312,20 @@ const Navbar = () => {
                   required
                 ></textarea>
                 <div className="flex items-center space-x-3">
-                  {['happy', 'neutral', 'sad'].map((reaction) => (
-                    <button key={reaction} type="button" onClick={() => handleReactionClick(reaction)} className={`p-2 rounded-full transition-colors ${selectedReaction === reaction ? 'bg-blue-500/20 text-blue-400' : 'text-gray-400 hover:bg-gray-800'}`}>
-                      {reaction === 'happy' && <Smile />}
-                      {reaction === 'neutral' && <Meh />}
-                      {reaction === 'sad' && <Frown />}
+                  {["happy", "neutral", "sad"].map((reaction) => (
+                    <button
+                      key={reaction}
+                      type="button"
+                      onClick={() => handleReactionClick(reaction)}
+                      className={`p-2 rounded-full transition-colors ${
+                        selectedReaction === reaction
+                          ? "bg-blue-500/20 text-blue-400"
+                          : "text-gray-400 hover:bg-gray-800"
+                      }`}
+                    >
+                      {reaction === "happy" && <Smile />}
+                      {reaction === "neutral" && <Meh />}
+                      {reaction === "sad" && <Frown />}
                     </button>
                   ))}
                 </div>

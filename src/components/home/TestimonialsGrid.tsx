@@ -73,8 +73,8 @@ const testimonials = [
     tweetUrl: "https://x.com/mattpocockuk/status/1874822204824731717",
     content: (
       <div className="mt-4">
-        Vercel&apos;s AI SDK is one of the first tools I reach for when I&apos;m building
-        an AI-powered feature in TypeScript.
+        Vercel&apos;s AI SDK is one of the first tools I reach for when I&apos;m
+        building an AI-powered feature in TypeScript.
       </div>
     ),
   },
@@ -87,16 +87,17 @@ const testimonials = [
       <>
         <div className="mt-4">
           Vercel&apos;s @aisdk is insanely good. Docs are fantastic. Great
-          abstractions where you want them, doesn&apos;t force unnecessary ones, and
-          lets you get under the hood where appropriate. Solves the hard stuff
-          (stream parsing, tool streaming, multi-turn tool execution, error
-          handling and healing/recovery) without forcing you into dumb patterns
+          abstractions where you want them, doesn&apos;t force unnecessary ones,
+          and lets you get under the hood where appropriate. Solves the hard
+          stuff (stream parsing, tool streaming, multi-turn tool execution,
+          error handling and healing/recovery) without forcing you into dumb
+          patterns
         </div>
         <div className="mt-4"></div>
         <div className="mt-4">
-          It just works, it&apos;s fantastic software and delightful to use. The team
-          ships insanely fast, and has turned PRs from me around in like 2 days,
-          and frequently ships requested features in &lt; 1w
+          It just works, it&apos;s fantastic software and delightful to use. The
+          team ships insanely fast, and has turned PRs from me around in like 2
+          days, and frequently ships requested features in &lt; 1w
         </div>
       </>
     ),
@@ -135,8 +136,8 @@ const testimonials = [
     tweetUrl: "https://x.com/localhost_5173/status/1794004340375802108",
     content: (
       <div className="mt-4">
-        Vercel AI SDK is so good, there&apos;s no reason to directly use npm/openai
-        or npm/claude anymore
+        Vercel AI SDK is so good, there&apos;s no reason to directly use
+        npm/openai or npm/claude anymore
       </div>
     ),
   },
@@ -154,9 +155,9 @@ const testimonials = [
     tweetUrl: "https://x.com/pontusab/status/1824398511099510791",
     content: (
       <div className="mt-4">
-        With the ai sdk available i&apos;m always thinking: &quot;How can I make this
-        process as automatic as possible for the user?&quot; because the barrier to
-        implementing it is just a matter of minutes.
+        With the ai sdk available i&apos;m always thinking: &quot;How can I make
+        this process as automatic as possible for the user?&quot; because the
+        barrier to implementing it is just a matter of minutes.
       </div>
     ),
   },
@@ -200,37 +201,42 @@ const columns = [
 
 export const TestimonialsGrid = () => {
   return (
-    <div className="grid w-full grid-cols-1 gap-4 p-6 mx-auto overflow-y-visible sm:grid-cols-2 lg:grid-cols-3 sm:p-8">
-      {/* Column 1 - Always Visible */}
-      <div className="flex flex-col space-y-4">
-        {columns[0].map((testimonial) => (
-          <TestimonialCard key={testimonial.handle} {...testimonial} />
-        ))}
+    <>
+      <div className="p-2 py-6 text-2xl font-bold tracking-tight sm:text-3xl md:p-8">
+        What people say about Tensor Base
       </div>
+      <div className="grid w-full grid-cols-1 gap-4 p-6 mx-auto overflow-y-visible sm:grid-cols-2 lg:grid-cols-3 sm:p-8">
+        {/* Column 1 - Always Visible */}
+        <div className="flex flex-col space-y-4">
+          {columns[0].map((testimonial) => (
+            <TestimonialCard key={testimonial.handle} {...testimonial} />
+          ))}
+        </div>
 
-      {/* Column 2 - Visible on SM and MD, hidden on LG+ */}
-      <div className="flex-col hidden space-y-4 sm:flex lg:hidden">
-        {columns[1].slice(0, 2).map((testimonial) => (
-          <TestimonialCard key={testimonial.handle} {...testimonial} />
-        ))}
-        {columns[2].slice(0, 2).map((testimonial) => (
-          <TestimonialCard key={testimonial.handle} {...testimonial} />
-        ))}
-      </div>
+        {/* Column 2 - Visible on SM and MD, hidden on LG+ */}
+        <div className="flex-col hidden space-y-4 sm:flex lg:hidden">
+          {columns[1].slice(0, 2).map((testimonial) => (
+            <TestimonialCard key={testimonial.handle} {...testimonial} />
+          ))}
+          {columns[2].slice(0, 2).map((testimonial) => (
+            <TestimonialCard key={testimonial.handle} {...testimonial} />
+          ))}
+        </div>
 
-      {/* Column 2 - Visible on LG+ */}
-      <div className="flex-col hidden space-y-4 lg:flex">
-        {columns[1].map((testimonial) => (
-          <TestimonialCard key={testimonial.handle} {...testimonial} />
-        ))}
-      </div>
+        {/* Column 2 - Visible on LG+ */}
+        <div className="flex-col hidden space-y-4 lg:flex">
+          {columns[1].map((testimonial) => (
+            <TestimonialCard key={testimonial.handle} {...testimonial} />
+          ))}
+        </div>
 
-      {/* Column 3 - Always Visible on SM+ */}
-      <div className="flex-col hidden space-y-4 sm:flex">
-        {columns[2].map((testimonial) => (
-          <TestimonialCard key={testimonial.handle} {...testimonial} />
-        ))}
+        {/* Column 3 - Always Visible on SM+ */}
+        <div className="flex-col hidden space-y-4 sm:flex">
+          {columns[2].map((testimonial) => (
+            <TestimonialCard key={testimonial.handle} {...testimonial} />
+          ))}
+        </div>
       </div>
-    </div>
+    </>
   );
 };

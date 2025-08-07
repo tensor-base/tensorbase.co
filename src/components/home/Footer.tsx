@@ -1,5 +1,5 @@
 import React from 'react';
-import { ShieldCheck } from 'lucide-react';
+import { ShieldCheck, Twitter, Facebook, Instagram, Youtube } from 'lucide-react';
 
 const footerLinks = [
   {
@@ -18,10 +18,13 @@ const footerLinks = [
     title: 'Events',
     links: ['Pioneer', 'Built For You', 'Webinars'],
   },
-  {
-    title: 'Fin in Action',
-    links: ['View demo', 'Free trial', 'Contact sales', 'Sign in'],
-  },
+];
+
+const socialLinks = [
+    { name: 'Twitter', icon: <Twitter size={20} />, href: '#' },
+    { name: 'Facebook', icon: <Facebook size={20} />, href: '#' },
+    { name: 'Instagram', icon: <Instagram size={20} />, href: '#' },
+    { name: 'Youtube', icon: <Youtube size={20} />, href: '#' },
 ];
 
 const Footer = () => {
@@ -40,7 +43,7 @@ const Footer = () => {
       {/* The original content now sits on top of the background */}
       <div className="max-w-7xl mx-auto py-16 px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Top section with link columns */}
-        <div className="grid grid-cols-2 md:grid-cols-5 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-5 gap-y-12 gap-x-8 text-left">
           {footerLinks.map((column) => (
             <div key={column.title}>
               <h3 className="text-sm font-semibold text-gray-400 tracking-wider uppercase">
@@ -57,16 +60,30 @@ const Footer = () => {
               </ul>
             </div>
           ))}
+          {/* This is the new social media column */}
+          <div>
+            <h3 className="text-sm font-semibold text-gray-400 tracking-wider uppercase">
+                Follow us out there
+            </h3>
+            <div className="flex items-center space-x-4 mt-6">
+                {socialLinks.map((social) => (
+                    <a key={social.name} href={social.href} className="text-gray-400 hover:text-white">
+                        <span className="sr-only">{social.name}</span>
+                        {social.icon}
+                    </a>
+                ))}
+            </div>
+          </div>
         </div>
 
         {/* Bottom section with legal links */}
-        <div className="mt-16 pt-8 border-t border-gray-700 flex flex-col sm:flex-row justify-between items-center text-sm text-gray-400">
-          <p>&copy; {new Date().getFullYear()} Tensor Base. An Intercom Product.</p>
-          <div className="flex items-center space-x-4 mt-4 sm:mt-0">
+        <div className="mt-16 pt-8 border-t border-white/10 flex flex-col sm:flex-row justify-between items-center text-sm text-gray-400">
+          <p className="text-center sm:text-left">&copy; {new Date().getFullYear()} Tensor Base. An Intercom Product.</p>
+          <div className="flex flex-wrap justify-center items-center space-x-4 mt-4 sm:mt-0">
             <a href="#" className="hover:text-white">Terms</a>
             <a href="#" className="hover:text-white">Privacy</a>
             <a href="#" className="hover:text-white">Security</a>
-            <a href="#" className="flex items-center hover:text-white">
+            <a href="#" className="flex items-center hover:text-white mt-2 sm:mt-0">
               <ShieldCheck size={16} className="mr-1.5" />
               Your Privacy Choices
             </a>

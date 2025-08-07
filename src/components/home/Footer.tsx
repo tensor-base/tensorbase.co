@@ -1,5 +1,5 @@
 import React from 'react';
-import { ShieldCheck, Twitter, Facebook, Instagram, Youtube } from 'lucide-react';
+import { ShieldCheck, Twitter, Facebook, Instagram, Youtube, Github } from 'lucide-react';
 
 const footerLinks = [
   {
@@ -21,10 +21,10 @@ const footerLinks = [
 ];
 
 const socialLinks = [
+    { name: 'Github', icon: <Github size={20} />, href: '#' },
     { name: 'Twitter', icon: <Twitter size={20} />, href: '#' },
-    { name: 'Facebook', icon: <Facebook size={20} />, href: '#' },
-    { name: 'Instagram', icon: <Instagram size={20} />, href: '#' },
     { name: 'Youtube', icon: <Youtube size={20} />, href: '#' },
+    { name: 'Instagram', icon: <Instagram size={20} />, href: '#' },
 ];
 
 const Footer = () => {

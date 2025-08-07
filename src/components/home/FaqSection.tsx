@@ -58,7 +58,7 @@ const FaqSection = () => {
                                     {faq.question}
                                 </span>
                                 <ChevronDown
-                                    className={`w-5 h-5 text-blue-400 transition-transform duration-300 ${
+                                    className={`w-5 h-5 text-white transition-transform duration-300 opacity-60 ${
                                         activeIndex === index ? "rotate-180" : ""
                                     }`}
                                 />

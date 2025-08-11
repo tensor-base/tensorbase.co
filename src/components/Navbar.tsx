@@ -18,10 +18,10 @@ import {
   Meh,
 } from "lucide-react";
 import Link from "next/link";
+import { useRouter } from 'next/navigation';
 
 // --- Data for the dropdown menu ---
 const productMenuItems = [
-  // ... (your menu items are unchanged)
   {
     category: "Build your app",
     items: [
@@ -86,6 +86,8 @@ const Navbar = () => {
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [isFeedbackModalOpen, setFeedbackModalOpen] = useState(false);
   const [selectedReaction, setSelectedReaction] = useState<string | null>(null);
+  const [isMobileProductMenuOpen, setMobileProductMenuOpen] = useState(false); // New state for mobile product dropdown
+  const router = useRouter();
 
   const openFeedbackModal = () => {
     setMobileMenuOpen(false);
@@ -98,6 +100,11 @@ const Navbar = () => {
     e.preventDefault();
     console.log("Feedback submitted!");
     closeFeedbackModal();
+  };
+
+  const handleMobileNav = (path: string) => {
+    setMobileMenuOpen(false);
+    router.push(path);
   };
 
   useEffect(() => {
@@ -227,61 +234,56 @@ const Navbar = () => {
             </div>
           </div>
         </div>
+      </nav>
 
-        {/* Mobile Menu */}
-        {isMobileMenuOpen && (
-          <div className="md:hidden bg-[#111111] backdrop-blur-xl border-t border-white/10">
-            <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-              <a
-                href="#"
-                className="block px-3 py-2 rounded-md text-base font-medium text-white hover:bg-gray-800"
-              >
-                Product
-              </a>
-              <a
-                href="#"
-                className="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-gray-800"
-              >
-                Pricing
-              </a>
-              <a
-                href="#"
-                className="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-gray-800"
-              >
-                Docs
-              </a>
-              <a
-                href="#"
-                className="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-gray-800"
-              >
-                Blog
-              </a>
+      {/* Mobile Menu */}
+      {isMobileMenuOpen && (
+        <div className="fixed top-20 left-0 w-full h-[calc(100vh-5rem)] md:hidden bg-[#111111] backdrop-blur-xl border-t border-white/10 z-30">
+          <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+            <button 
+              onClick={() => setMobileProductMenuOpen(!isMobileProductMenuOpen)} 
+              className="w-full flex justify-between items-center px-3 py-2 rounded-md text-base font-medium text-white hover:bg-gray-800"
+            >
+              <span>Product</span>
+              <ChevronDown size={20} className={`transition-transform duration-300 ${isMobileProductMenuOpen ? 'rotate-180' : ''}`} />
+            </button>
+            {isMobileProductMenuOpen && (
+              <div className="pl-4 border-l border-gray-700 ml-3">
+                {productMenuItems.flatMap(section => section.items).map(item => (
+                  <Link key={item.title} href={item.href} onClick={() => setMobileMenuOpen(false)} className="flex items-center space-x-3 py-2 text-gray-300 hover:text-white">
+                    {item.icon}
+                    <span>{item.title}</span>
+                  </Link>
+                ))}
+              </div>
+            )}
+            <Link href="/pricing" onClick={() => setMobileMenuOpen(false)} className="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-gray-800">Pricing</Link>
+            <Link href="/blog" onClick={() => setMobileMenuOpen(false)} className="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-gray-800">Blog</Link>
+            <button
+              onClick={openFeedbackModal}
+              className="w-full text-left block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-gray-800"
+            >
+              Feedback
+            </button>
+          </div>
+          <div className="pt-4 pb-3 border-t border-gray-800">
+            <div className="flex items-center justify-center space-x-4">
               <button
-                onClick={openFeedbackModal}
-                className="w-full text-left block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-gray-800"
+                onClick={() => handleMobileNav('/login')}
+                className="text-gray-300 hover:text-white transition-colors duration-300"
               >
-                Feedback
+                Log In
+              </button>
+              <button
+                onClick={() => handleMobileNav('/signup')}
+                className="bg-blue-600 text-white px-4 py-2 rounded-md text-sm font-semibold hover:bg-blue-700 transition-colors duration-300"
+              >
+                Sign Up
               </button>
             </div>
-            <div className="pt-4 pb-3 border-t border-gray-800">
-              <div className="flex items-center justify-center space-x-4">
-                <a
-                  href="/login"
-                  className="text-gray-300 hover:text-white transition-colors duration-300"
-                >
-                  Log In
-                </a>
-                <a
-                  href="/signup"
-                  className="bg-blue-600 text-white px-4 py-2 rounded-md text-sm font-semibold hover:bg-blue-700 transition-colors duration-300"
-                >
-                  Sign Up
-                </a>
-              </div>
-            </div>
           </div>
-        )}
-      </nav>
+        </div>
+      )}
 
       {/* --- FEEDBACK MODAL --- */}
       {isFeedbackModalOpen && (

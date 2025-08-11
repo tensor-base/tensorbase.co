@@ -78,7 +78,7 @@ const Footer = () => {
 
         {/* Bottom section with legal links */}
         <div className="mt-16 pt-8 border-t border-white/10 flex flex-col sm:flex-row justify-between items-center text-sm text-gray-400">
-          <p className="text-center sm:text-left">&copy; {new Date().getFullYear()} Tensor Base. An Intercom Product.</p>
+          <p className="text-center sm:text-left">&copy; {new Date().getFullYear()} Tensor Base</p>
           <div className="flex flex-wrap justify-center items-center space-x-4 mt-4 sm:mt-0">
             <a href="#" className="hover:text-white">Terms</a>
             <a href="#" className="hover:text-white">Privacy</a>

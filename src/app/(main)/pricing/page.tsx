@@ -59,7 +59,7 @@ const pricingPlans = [
 
 const PricingPage = () => {
     return (
-        <div className="bg-black text-white min-h-screen">
+        <div className="bg-[#111111] text-white min-h-screen">
             <div className="max-w-7xl mx-auto py-24 px-4 sm:px-6 lg:px-8">
                 {/* Header */}
                 <div className="text-center">

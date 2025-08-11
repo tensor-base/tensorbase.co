@@ -1,38 +1,20 @@
-import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
-import "../globals.css";
-import Navbar from "../../components/Navbar";
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/home/Footer";
 
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
-
-export const metadata: Metadata = {
-  title: "Tensor Base: Unobtrusive AI/ML development",
-  description: "A platform for seamless AI/ML development",
-};
-
-export default function RootLayout({
+export default function MainLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
-    <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        <Navbar />
-        <main>{children}</main>
-        {/* <Footer /> */}
-      </body>
-    </html>
+    // The body is now a flex container that fills the screen
+    <div className="flex flex-col min-h-screen">
+      <Navbar />
+      {/* The main content area will now grow to fill available space */}
+      <main className="flex-grow">
+        {children}
+      </main>
+      <Footer />
+    </div>
   );
 }

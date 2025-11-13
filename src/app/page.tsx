@@ -18,24 +18,6 @@ const ComingSoonPage = () => {
 
   return (
     <div className="min-h-screen bg-black text-white relative overflow-hidden">
-      {/* Navigation */}
-      <nav className="flex items-center justify-between px-6 py-4 relative z-10">
-        <div className="flex items-center space-x-8">
-          <div className="flex items-center space-x-2">
-            {/* <div className="w-8 h-8 bg-white rounded-sm flex items-center justify-center">
-              <span className="text-black font-bold text-lg">▲</span>
-            </div> */}
-            <span className="text-xl font-bold">Tensor Base</span>
-          </div>
-        </div>
-        {/* <div className="flex items-center space-x-4">
-          <div className="flex items-center space-x-2 text-gray-300">
-            <Github size={18} />
-            <span className="text-sm">Github</span>
-          </div>
-        </div> */}
-      </nav>
-
       {/* Main Content */}
       <div className="flex flex-col items-center justify-center px-6 py-12 max-w-6xl mx-auto relative z-10 text-center min-h-[80vh]">
         {/* Coming Soon Badge */}

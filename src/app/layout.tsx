@@ -1,5 +1,6 @@
 import "./globals.css";
 import { Geist, Geist_Mono } from "next/font/google";
+import Navbar from "../components/Navbar";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -12,8 +13,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  title: "Tensor Base",
-  description: "Unobtrusive AI/ML development",
+  title: "Tensor Base: Unobtrusive AI/ML development",
+  description: "A platform for seamless AI/ML development",
 };
 
 export default function RootLayout({
@@ -23,7 +24,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased bg-black`}>
+      <body
+        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-black`}
+      >
+        {/* <Navbar /> */}
         {children}
       </body>
     </html>

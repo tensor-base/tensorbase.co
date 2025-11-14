@@ -22,7 +22,7 @@ const ComingSoonPage = () => {
       <div className="flex flex-col items-center justify-center px-6 max-w-4xl mx-auto min-h-screen">
         <div className="text-center space-y-12">
           <div>
-            <h1 className="text-6xl md:text-7xl font-bold mb-6 tracking-tight">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-6 tracking-tight">
               Unobtrusive AI/ML development and deployment
             </h1>
             <p className="text-lg text-gray-400 max-w-2xl mx-auto">

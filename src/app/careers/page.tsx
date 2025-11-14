@@ -3,7 +3,7 @@ import HackerText from "@/components/HackerText";
 
 export default function CareersPage() {
   return (
-    <div className="h-screen bg-black text-white flex items-center justify-center p-6 overflow-hidden">
+    <div className="min-h-screen bg-black text-white flex items-center justify-center p-6">
       <div className="max-w-2xl w-full text-center space-y-12">
         <div className="space-y-6">
           <h3 className="text-3xl md:text-4xl font-bold tracking-tight">

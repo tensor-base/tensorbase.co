@@ -17,9 +17,9 @@ const ComingSoonPage = () => {
   };
 
   return (
-    <div className="h-screen bg-black text-white relative overflow-hidden">
+    <div className="min-h-screen bg-black text-white relative">
       {/* Main Content */}
-      <div className="flex flex-col items-center justify-center px-6 max-w-4xl mx-auto h-full">
+      <div className="flex flex-col items-center justify-center px-6 max-w-4xl mx-auto min-h-screen">
         <div className="text-center space-y-12">
           <div>
             <h1 className="text-6xl md:text-7xl font-bold mb-6 tracking-tight">

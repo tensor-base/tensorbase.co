@@ -17,84 +17,52 @@ const ComingSoonPage = () => {
   };
 
   return (
-    <div className="min-h-screen bg-black text-white relative overflow-hidden">
+    <div className="h-screen bg-black text-white relative overflow-hidden">
       {/* Main Content */}
-      <div className="flex flex-col items-center justify-center px-6 py-12 max-w-6xl mx-auto relative z-10 text-center min-h-[80vh]">
-        {/* Coming Soon Badge */}
-
-        {/* Main Heading */}
-        <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6 bg-gradient-to-r from-white via-gray-200 to-gray-400 bg-clip-text text-transparent">
-          Unobtrusive AI/ML development and deployment
-        </h1>
-
-        {/* Action Words */}
-
-        {/* Description */}
-        <p className="text-xl md:text-2xl text-gray-300 mb-12 leading-relaxed max-w-3xl">
-          A next-gen platform for deploying your AI/ML applications. Develop and
-          ship at the speed of thought.
-        </p>
-
-        <div className="w-full max-w-md relative group mb-8">
-          <form onSubmit={handleNotifyMe} className="relative">
-            <div className="flex items-center border border-white/10 rounded-none bg-white/5 backdrop-blur-sm hover:border-white/20 transition-all duration-500 group-hover:bg-white/10">
-              <div className="flex-1 relative">
+      <div className="flex flex-col items-center justify-center px-6 max-w-4xl mx-auto h-full">
+        <div className="text-center space-y-12">
+          <div>
+            <h1 className="text-6xl md:text-7xl font-bold mb-6 tracking-tight">
+              Unobtrusive AI/ML development and deployment
+            </h1>
+            <p className="text-lg text-gray-400 max-w-2xl mx-auto">
+              A next-gen platform for deploying your AI/ML applications. Develop
+              and ship at the speed of thought.
+            </p>
+          </div>
+          {/* Email Form */}
+          <div className="w-full max-w-md mx-auto">
+            <form onSubmit={handleNotifyMe}>
+              <div className="flex border border-gray-800 rounded-lg overflow-hidden focus-within:border-gray-700 transition-colors">
                 <input
                   type="email"
-                  placeholder="Enter your email"
+                  placeholder="your@email.com"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  className="w-full bg-transparent px-6 py-5 text-white placeholder-gray-500 focus:outline-none text-base font-light tracking-wide"
+                  className="flex-1 bg-transparent px-5 py-4 text-white placeholder-gray-600 focus:outline-none"
                   required
                 />
+                <button
+                  type="submit"
+                  className="px-5 py-4 text-gray-400 hover:text-white transition-colors"
+                >
+                  <ArrowRight size={20} />
+                </button>
               </div>
-              <button
-                type="submit"
-                className="flex items-center space-x-2 px-6 py-5 text-white hover:text-gray-300 transition-colors duration-300 group"
-              >
-                <span className="text-sm font-light tracking-wide">Notify</span>
-                <ArrowRight
-                  size={16}
-                  className="transform group-hover:translate-x-1 transition-transform duration-300"
-                />
-              </button>
-            </div>
-          </form>
+            </form>
 
-          {isSubscribed && (
-            <div className="mt-4 p-4 rounded-lg backdrop-blur-sm">
-              <p className="text-green-400 text-sm">
-                ✅ Thanks! We&apos;ll notify you when we launch.
+            {isSubscribed && (
+              <p className="text-gray-500 text-sm mt-4">
+                ✓ Thanks! We&apos;ll notify you when we launch.
               </p>
-            </div>
-          )}
-        </div>
-
-        <div className="text-center space-y-3">
+            )}
+          </div>
           <div className="inline-flex items-center space-x-2 text-gray-400">
             <div className="w-2 h-2 bg-yellow-400 rounded-full animate-pulse"></div>
             <span className="text-sm">Currently in development</span>
-          </div>
-          <p className="text-sm text-gray-500">
-            Join <span className="text-blue-400 font-semibold">100+</span>{" "}
-            developers already on the waitlist
-          </p>
+          </div>{" "}
         </div>
-
-        {/* Features Preview */}
       </div>
-
-      {/* Background Elements */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl"></div>
-        <div className="absolute top-1/4 right-1/4 w-64 h-64 bg-purple-500/10 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-1/4 left-1/4 w-80 h-80 bg-green-500/10 rounded-full blur-3xl"></div>
-      </div>
-
-      {/* Footer */}
-      {/* <footer className="absolute bottom-0 w-full p-6 text-center text-gray-500 text-sm">
-        <p>© 2025 Tensor Base. All rights reserved.</p>
-      </footer> */}
     </div>
   );
 };

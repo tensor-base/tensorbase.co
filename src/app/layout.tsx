@@ -1,6 +1,6 @@
 import "./globals.css";
-import { Geist, Geist_Mono } from "next/font/google";
-import Navbar from "../components/Navbar";
+import { Geist, Geist_Mono, Caveat } from "next/font/google";
+import SimpleNavbar from "../components/SimpleNavbar";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -9,6 +9,11 @@ const geistSans = Geist({
 
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
+  subsets: ["latin"],
+});
+
+const caveat = Caveat({
+  variable: "--font-caveat",
   subsets: ["latin"],
 });
 
@@ -23,11 +28,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html lang="en" className="h-full overflow-hidden">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-black`}
+        className={`${geistSans.variable} ${geistMono.variable} ${caveat.variable} antialiased bg-black h-full overflow-hidden`}
       >
-        {/* <Navbar /> */}
+        <SimpleNavbar />
         {children}
       </body>
     </html>

@@ -118,18 +118,18 @@ const Navbar = () => {
     <>
       <nav className="sticky top-0 z-40 border-b border-white/10 bg-[#111111]">
         <div className="px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-15">
+          <div className="flex items-center justify-between h-16">
             {/* Logo and primary nav */}
-            <div className="flex items-center space-x-8">
-              <Link href="/" className="flex-shrink-0">
+            <div className="flex items-center space-x-8 h-full">
+              <Link href="/" className="flex-shrink-0 flex items-center h-full">
                 <span className="text-xl font-bold text-white">
                   Tensor Base
                 </span>
               </Link>
-              <div className="hidden md:flex items-center space-x-6">
+              <div className="hidden md:flex items-center space-x-6 h-full">
                 {/* Product Dropdown */}
-                <div className="relative group">
-                  <button className="flex items-center space-x-1 text-gray-300 hover:text-white transition-colors duration-300">
+                <div className="relative group h-full flex items-center">
+                  <button className="flex items-center space-x-1 text-gray-300 hover:text-white transition-colors duration-300 h-full">
                     <span>Product</span>
                     <ChevronDown
                       size={16}
@@ -175,19 +175,19 @@ const Navbar = () => {
                 </div>
                 <Link
                   href="/pricing"
-                  className="text-gray-300 hover:text-white transition-colors duration-300"
+                  className="text-gray-300 hover:text-white transition-colors duration-300 flex items-center h-full"
                 >
                   Pricing
                 </Link>
                 <Link
                   href="/docs"
-                  className="text-gray-300 hover:text-white transition-colors duration-300"
+                  className="text-gray-300 hover:text-white transition-colors duration-300 flex items-center h-full"
                 >
                   Docs
                 </Link>
                 <Link
                   href="/blog"
-                  className="text-gray-300 hover:text-white transition-colors duration-300"
+                  className="text-gray-300 hover:text-white transition-colors duration-300 flex items-center h-full"
                 >
                   Blog
                 </Link>

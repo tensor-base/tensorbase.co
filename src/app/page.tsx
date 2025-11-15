@@ -27,10 +27,14 @@ const ComingSoonPage = () => {
             </h1>
             <p className="text-lg text-gray-400 max-w-2xl mx-auto">
               A next-gen platform for deploying your AI/ML applications. Develop
-              and ship at the speed of thought.
+              and ship at the speed of thought 🔥
             </p>
           </div>
           {/* Email Form */}
+          <div className="inline-flex items-center space-x-2 text-gray-400 mb-6">
+            <div className="w-2 h-2 bg-yellow-400 rounded-full animate-pulse"></div>
+            <span className="text-sm">Currently in development</span>
+          </div>
           <div className="w-full max-w-md mx-auto">
             <form onSubmit={handleNotifyMe}>
               <div className="flex border border-gray-800 rounded-lg overflow-hidden focus-within:border-gray-700 transition-colors">
@@ -50,17 +54,13 @@ const ComingSoonPage = () => {
                 </button>
               </div>
             </form>
-
+            <p className="text-sm text-gray-500 pt-2">Join the waitlist</p>
             {isSubscribed && (
-              <p className="text-gray-500 text-sm mt-4">
+              <p className="text-gray-500 text-sm mt-2">
                 ✓ Thanks! We&apos;ll notify you when we launch.
               </p>
             )}
           </div>
-          <div className="inline-flex items-center space-x-2 text-gray-400">
-            <div className="w-2 h-2 bg-yellow-400 rounded-full animate-pulse"></div>
-            <span className="text-sm">Currently in development</span>
-          </div>{" "}
         </div>
       </div>
     </div>

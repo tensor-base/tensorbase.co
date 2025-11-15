@@ -7,7 +7,7 @@ export default function CareersPage() {
       <div className="max-w-2xl w-full text-center space-y-12">
         <div className="space-y-6">
           <h3 className="text-3xl md:text-4xl font-bold tracking-tight">
-            We&apos;ll be Hiring! 🎉
+            We&apos;ll be hiring! 🎉
           </h3>
 
           <p className="text-xl text-gray-400">

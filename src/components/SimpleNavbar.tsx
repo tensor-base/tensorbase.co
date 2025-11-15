@@ -13,13 +13,13 @@ export default function SimpleNavbar() {
         <div className="flex gap-6">
           <Link
             href="/careers"
-            className="text-sm text-gray-500 hover:text-white transition-colors"
+            className="text-sm text-gray-400 hover:text-white transition-colors"
           >
             Careers
           </Link>
           <Link
             href="/contact"
-            className="text-sm text-gray-500 hover:text-white transition-colors"
+            className="text-sm text-gray-400 hover:text-white transition-colors"
           >
             Contact
           </Link>

@@ -54,9 +54,11 @@ const ComingSoonPage = () => {
                 </button>
               </div>
             </form>
-            <p className="text-sm text-gray-500 pt-2">Join the waitlist</p>
+            <p className="text-sm text-gray-500 pt-2">
+              Enter your email to join the waitlist
+            </p>
             {isSubscribed && (
-              <p className="text-gray-500 text-sm mt-2">
+              <p className="text-gray-400 text-sm mt-2">
                 ✓ Thanks! We&apos;ll notify you when we launch.
               </p>
             )}

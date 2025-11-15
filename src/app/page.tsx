@@ -26,8 +26,8 @@ const ComingSoonPage = () => {
               Unobtrusive AI/ML development and deployment
             </h1>
             <p className="text-lg text-gray-400 max-w-2xl mx-auto">
-              A next-gen platform for deploying your AI/ML applications. Develop
-              and ship at the speed of thought 🔥
+              A next-gen platform for developing and deploying your AI/ML
+              applications. Develop and ship at the speed of thought 🔥
             </p>
           </div>
           {/* Email Form */}

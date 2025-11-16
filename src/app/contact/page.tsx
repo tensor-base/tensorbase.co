@@ -8,7 +8,7 @@ export default function ContactPage() {
           <h1 className="text-3xl md:text-3xl font-bold tracking-tight">
             Contact
           </h1>
-          <p className="text-xl">tensorbase [at] gmail [dot] com</p>
+          <p className="text-xl">contact [at] tensorbase [dot] co</p>
         </div>
       </div>
     </div>

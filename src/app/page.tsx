@@ -24,17 +24,22 @@ const ComingSoonPage = () => {
             Develop and ship at the speed of thought 🔥
           </p>
         </div>
-
-        <Link
-          href="/interest"
-          className="group flex items-center gap-2 bg-white text-black px-8 py-4 rounded-full text-lg font-medium hover:bg-gray-200 transition-all transform hover:scale-105 shadow-lg"
-        >
-          Notify me when available
-          <ArrowRight
-            size={20}
-            className="group-hover:translate-x-1 transition-transform"
-          />
-        </Link>
+        <div className="flex flex-col items-center space-y-6 mt-6">
+          <div className="inline-flex items-center space-x-2 text-gray-400 mb-6">
+            <div className="w-2 h-2 bg-yellow-400 rounded-full animate-pulse"></div>
+            <span className="text-sm">Currently in development</span>
+          </div>
+          <Link
+            href="/interest"
+            className="group flex items-center gap-2 bg-white text-black px-8 py-4 rounded-full text-lg font-medium hover:bg-gray-200 transition-all transform hover:scale-105 shadow-lg"
+          >
+            Notify me when available
+            <ArrowRight
+              size={20}
+              className="group-hover:translate-x-1 transition-transform"
+            />
+          </Link>
+        </div>
       </div>
     </div>
   );

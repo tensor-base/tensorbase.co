@@ -1,7 +1,5 @@
 "use client";
 
-import Link from "next/link";
-import { ArrowLeft, Sparkles } from "lucide-react";
 import HackerText from "@/components/HackerText";
 
 export default function CareersPage() {
